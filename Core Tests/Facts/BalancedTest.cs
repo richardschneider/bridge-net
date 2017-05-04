@@ -39,7 +39,7 @@ namespace BlackHen.Bridge.Facts
          hand.Add(Card.Parse("AD"));
          hand.Add(Card.Parse("2S"));
          hand.Add(Card.Parse("3S"));
-         Assert.AreEqual(false, new Balanced().IsTrue(hand));
+         Assert.AreEqual(true, new Balanced().IsTrue(hand));
       }
 
       [TestMethod]
