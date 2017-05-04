@@ -13,7 +13,7 @@ namespace BlackHen.Bridge.Analysis
       IDoubleDummy Solver { get { return new BoHaglundDds(); } }
 
       [TestMethod]
-      public void TestMethod1()
+      public void DoubleDummy()
       {
          var board = new Board()
          {
