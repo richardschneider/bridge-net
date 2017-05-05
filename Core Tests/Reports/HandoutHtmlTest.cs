@@ -19,7 +19,7 @@ namespace BlackHen.Bridge.Reports
         public void Produce()
         {
             var tournament = new Tournament();
-            tournament.GenerateBoards(25);
+            tournament.GenerateBoards(2);
             var writer = new StringWriter();
             var report = new HandoutHtml() { Tournament = tournament };
             report.Produce(writer);
