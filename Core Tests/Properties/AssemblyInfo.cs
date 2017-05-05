@@ -9,7 +9,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyDescription("Tests for contract bridge")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Richard Schneider (makaretu@gmail.com)")]
-[assembly: AssemblyProduct("ContractBridge")]
+[assembly: AssemblyProduct("Makaretu Bridge")]
 [assembly: AssemblyCopyright("Copyright © 2017")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace BlackHen.Bridge
+namespace Makaretu.Bridge
 {
     public class CardCollection : List<Card>
     {

@@ -1,15 +1,15 @@
 ﻿// TODO: Rename HandRecord
 // TODO: Make ranks a little taller
 
-using BlackHen.Bridge.Analysis;
-using BlackHen.Bridge.Facts;
+using Makaretu.Bridge.Analysis;
+using Makaretu.Bridge.Facts;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
 
-namespace BlackHen.Bridge.Reports
+namespace Makaretu.Bridge.Reports
 {
     /// <summary>
     ///   Produces an HTML page containing the boards of a <see cref="Tournament"/>.

@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
-  <Class Name="BlackHen.Bridge.Bid">
+  <Class Name="Makaretu.Bridge.Bid">
     <Position X="5.25" Y="4.75" Width="1.5" />
     <Compartments>
       <Compartment Name="Fields" Collapsed="true" />
@@ -14,7 +14,7 @@
       <Property Name="Denomination" />
     </ShowAsAssociation>
   </Class>
-  <Class Name="BlackHen.Bridge.Auction">
+  <Class Name="Makaretu.Bridge.Auction">
     <Position X="5.25" Y="8" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAEAAQAAAAAAAAAAAAAAAAAA=</HashCode>
@@ -24,7 +24,7 @@
       <Property Name="Dealer" />
     </ShowAsAssociation>
   </Class>
-  <Class Name="BlackHen.Bridge.Board">
+  <Class Name="Makaretu.Bridge.Board">
     <Position X="2.75" Y="0.75" Width="1.5" />
     <Compartments>
       <Compartment Name="Fields" Collapsed="true" />
@@ -40,26 +40,26 @@
       <Property Name="Hands" />
     </ShowAsCollectionAssociation>
   </Class>
-  <Class Name="BlackHen.Bridge.CardCollection" Collapsed="true">
+  <Class Name="Makaretu.Bridge.CardCollection" Collapsed="true">
     <Position X="0.5" Y="0.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>CardCollection.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="BlackHen.Bridge.Contract" Collapsed="true">
+  <Class Name="Makaretu.Bridge.Contract" Collapsed="true">
     <Position X="5.25" Y="6.75" Width="1.5" />
     <Compartments>
       <Compartment Name="Fields" Collapsed="true" />
       <Compartment Name="Methods" Collapsed="true" />
     </Compartments>
-    <InheritanceLine Type="BlackHen.Bridge.Bid" FixedToPoint="true">
+    <InheritanceLine Type="Makaretu.Bridge.Bid" FixedToPoint="true">
       <Path>
         <Point X="6" Y="6.33" />
         <Point X="6" Y="6.75" />
       </Path>
     </InheritanceLine>
-    <AssociationLine Name="Declaror" Type="BlackHen.Bridge.Seat" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
+    <AssociationLine Name="Declaror" Type="Makaretu.Bridge.Seat" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
       <Path>
         <Point X="6.75" Y="7.187" />
         <Point X="7.125" Y="7.187" />
@@ -76,7 +76,7 @@
       <Property Name="Risk" />
     </ShowAsAssociation>
   </Class>
-  <Class Name="BlackHen.Bridge.Hand">
+  <Class Name="Makaretu.Bridge.Hand">
     <Position X="5.25" Y="2.5" Width="1.5" />
     <Compartments>
       <Compartment Name="Fields" Collapsed="true" />
@@ -90,7 +90,7 @@
       <Property Name="Facts" />
     </ShowAsCollectionAssociation>
   </Class>
-  <Class Name="BlackHen.Bridge.Tournament">
+  <Class Name="Makaretu.Bridge.Tournament">
     <Position X="0.5" Y="2.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAACAAAAA=</HashCode>
@@ -100,23 +100,23 @@
       <Property Name="Boards" />
     </ShowAsCollectionAssociation>
   </Class>
-  <Class Name="BlackHen.Bridge.Game">
+  <Class Name="Makaretu.Bridge.Game">
     <Position X="2.75" Y="6.25" Width="1.5" />
-    <AssociationLine Name="EastWest" Type="BlackHen.Bridge.Pair" FixedFromPoint="true" FixedToPoint="true">
+    <AssociationLine Name="EastWest" Type="Makaretu.Bridge.Pair" FixedFromPoint="true" FixedToPoint="true">
       <Path>
         <Point X="3.5" Y="7.231" />
         <Point X="3.5" Y="9.5" />
         <Point X="2" Y="9.5" />
       </Path>
     </AssociationLine>
-    <AssociationLine Name="NorthSouth" Type="BlackHen.Bridge.Pair" FixedFromPoint="true" FixedToPoint="true">
+    <AssociationLine Name="NorthSouth" Type="Makaretu.Bridge.Pair" FixedFromPoint="true" FixedToPoint="true">
       <Path>
         <Point X="3.094" Y="7.231" />
         <Point X="3.094" Y="9.125" />
         <Point X="2" Y="9.125" />
       </Path>
     </AssociationLine>
-    <AssociationLine Name="Board" Type="BlackHen.Bridge.Board" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
+    <AssociationLine Name="Board" Type="Makaretu.Bridge.Board" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
       <Path>
         <Point X="3.125" Y="6.25" />
         <Point X="3.125" Y="4.636" />
@@ -136,17 +136,17 @@
       <Property Name="Bids" />
     </ShowAsAssociation>
   </Class>
-  <Class Name="BlackHen.Bridge.Pair">
+  <Class Name="Makaretu.Bridge.Pair">
     <Position X="0.5" Y="9" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Pair.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Struct Name="BlackHen.Bridge.Card" Collapsed="true">
+  <Struct Name="Makaretu.Bridge.Card" Collapsed="true">
     <Position X="8" Y="2.5" Width="1.5" />
     <NestedTypes>
-      <Enum Name="BlackHen.Bridge.Card.Info" Collapsed="true">
+      <Enum Name="Makaretu.Bridge.Card.Info" Collapsed="true">
         <TypeIdentifier>
           <NewMemberFileName>Card.cs</NewMemberFileName>
         </TypeIdentifier>
@@ -157,49 +157,49 @@
       <FileName>Card.cs</FileName>
     </TypeIdentifier>
   </Struct>
-  <Interface Name="BlackHen.Bridge.Fact" Collapsed="true">
+  <Interface Name="Makaretu.Bridge.Fact" Collapsed="true">
     <Position X="8" Y="3.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>IAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Fact.cs</FileName>
     </TypeIdentifier>
   </Interface>
-  <Enum Name="BlackHen.Bridge.Vulnerability">
+  <Enum Name="Makaretu.Bridge.Vulnerability">
     <Position X="5.25" Y="1" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAEIAAA=</HashCode>
       <FileName>Board.cs</FileName>
     </TypeIdentifier>
   </Enum>
-  <Enum Name="BlackHen.Bridge.Seat">
+  <Enum Name="Makaretu.Bridge.Seat">
     <Position X="8" Y="8" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AACAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAABAAQ=</HashCode>
       <FileName>Board.cs</FileName>
     </TypeIdentifier>
   </Enum>
-  <Enum Name="BlackHen.Bridge.Rank">
+  <Enum Name="Makaretu.Bridge.Rank">
     <Position X="0.5" Y="4" Width="1.5" />
     <TypeIdentifier>
       <HashCode>gAAAAAAAAAAggAAAEAAEAIAAAAAFBAAAAAgAAAgAAGE=</HashCode>
       <FileName>Card.cs</FileName>
     </TypeIdentifier>
   </Enum>
-  <Enum Name="BlackHen.Bridge.Suit">
+  <Enum Name="Makaretu.Bridge.Suit">
     <Position X="0.5" Y="7.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAQAAAEAAAAAAAAABAAAAAAAAAAAAAAAAAAAACA=</HashCode>
       <FileName>Card.cs</FileName>
     </TypeIdentifier>
   </Enum>
-  <Enum Name="BlackHen.Bridge.Risk">
+  <Enum Name="Makaretu.Bridge.Risk">
     <Position X="8" Y="6.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAACEAAAA=</HashCode>
       <FileName>Contract.cs</FileName>
     </TypeIdentifier>
   </Enum>
-  <Enum Name="BlackHen.Bridge.Denomination">
+  <Enum Name="Makaretu.Bridge.Denomination">
     <Position X="8" Y="4.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAQAAAEAAAAAAAAABAAAAAAAAAAEAAAAAAAAACA=</HashCode>

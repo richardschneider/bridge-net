@@ -8,8 +8,8 @@
     <ProjectGuid>{76FDBD0F-E694-4FD8-9376-185FFDA4E231}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>BlackHen.Bridge</RootNamespace>
-    <AssemblyName>BlackHen.Bridge.Core</AssemblyName>
+    <RootNamespace>Makaretu.Bridge</RootNamespace>
+    <AssemblyName>Makaretu.Bridge</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <FileUpgradeFlags>

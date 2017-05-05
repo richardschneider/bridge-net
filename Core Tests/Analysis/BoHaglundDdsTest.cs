@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace BlackHen.Bridge.Analysis
+namespace Makaretu.Bridge.Analysis
 {
     [TestClass]
     public class BoHaglundDdsTest

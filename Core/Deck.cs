@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace BlackHen.Bridge
+namespace Makaretu.Bridge
 {
     /// <summary>
     ///   A distribution of 52 <see cref="Card">cards </see>.

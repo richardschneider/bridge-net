@@ -1,8 +1,8 @@
-﻿using BlackHen.Bridge.Facts;
+﻿using Makaretu.Bridge.Facts;
 using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace BlackHen.Bridge
+namespace Makaretu.Bridge
 {
     [TestClass]
     public class HandGeneratorTest

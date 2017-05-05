@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using BlackHen.Bridge;
+using Makaretu.Bridge;
 
-namespace BlackHen.Bridge.Scoring
+namespace Makaretu.Bridge.Scoring
 {
     [TestClass]
     public class MatchpointsTest

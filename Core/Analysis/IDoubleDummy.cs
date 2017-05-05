@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace BlackHen.Bridge.Analysis
+namespace Makaretu.Bridge.Analysis
 {
     /// <summary>
     ///   A double dummy algorithm is able to solve bridge problems by examining

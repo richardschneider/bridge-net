@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.Text;
 
-namespace BlackHen.Bridge.Facts
+namespace Makaretu.Bridge.Facts
 {
     /// <summary>
     ///   High Card Points

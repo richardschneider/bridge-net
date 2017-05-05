@@ -3,7 +3,7 @@ using System.IO;
 using System.Text;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace BlackHen.Bridge.Reports
+namespace Makaretu.Bridge.Reports
 {
     [TestClass]
     public class HandoutHtmlTest

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace BlackHen.Bridge
+namespace Makaretu.Bridge
 {
     public enum Risk : byte
     {
@@ -28,7 +28,7 @@ namespace BlackHen.Bridge
         ///   The risk of the <see cref="Contract"/>.
         /// </summary>
         /// <value>
-        ///   One of the <see cref="BlackHen.Bridge.Risk"/> enumeration values.
+        ///   One of the <see cref="Makaretu.Bridge.Risk"/> enumeration values.
         /// </value>
         public Risk Risk { get; private set; }
 

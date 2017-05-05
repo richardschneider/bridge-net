@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace BlackHen.Bridge.Analysis
+namespace Makaretu.Bridge.Analysis
 {
     /// <summary>
     ///   All the <see cref="Contract">contracts</see> that can be made for a

@@ -1,7 +1,7 @@
-﻿using BlackHen.Bridge.Scoring;
+﻿using Makaretu.Bridge.Scoring;
 using System;
 
-namespace BlackHen.Bridge
+namespace Makaretu.Bridge
 {
     public class Game
     {
@@ -12,7 +12,7 @@ namespace BlackHen.Bridge
         ///   specified <see cref="Board"/>.
         /// </summary>
         /// <param name="board">
-        ///   The <see cref="BlackHen.Bridge.Board"/> used for the duplicate game.
+        ///   The <see cref="Makaretu.Bridge.Board"/> used for the duplicate game.
         /// </param>
         public Game(Board board)
         {

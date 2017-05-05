@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace BlackHen.Bridge
+namespace Makaretu.Bridge
 {
     /// <summary>
     ///   Component of a <see cref="Bid"/> that denotes the proposed trump suit or notrump;
@@ -67,7 +67,7 @@ namespace BlackHen.Bridge
         ///   The proposed trump suit or notrumps.
         /// </summary>
         /// <value>
-        ///   One of the <see cref="BlackHen.Bridge.Denomination"/> enumeration values.
+        ///   One of the <see cref="Makaretu.Bridge.Denomination"/> enumeration values.
         /// </value>
         public Denomination Denomination { get; private set; }
 

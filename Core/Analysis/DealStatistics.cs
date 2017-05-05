@@ -1,10 +1,10 @@
-﻿using BlackHen.Bridge.Facts;
+﻿using Makaretu.Bridge.Facts;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace BlackHen.Bridge.Analysis
+namespace Makaretu.Bridge.Analysis
 {
     /// <summary>
     ///   Provides some common statistics on a list of <see cref="Board">boards</see>.

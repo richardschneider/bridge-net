@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace BlackHen.Bridge
+namespace Makaretu.Bridge
 {
     /// <summary>
     ///   The direction that a <see cref="Pair"/> is playing.

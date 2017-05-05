@@ -1,7 +1,7 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace BlackHen.Bridge
+namespace Makaretu.Bridge
 {
     /// <summary>
     /// Summary description for UnitTest1

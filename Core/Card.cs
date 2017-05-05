@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Text;
 
-namespace BlackHen.Bridge
+namespace Makaretu.Bridge
 {
     public enum Rank : byte
     {
@@ -86,10 +86,10 @@ namespace BlackHen.Bridge
         ///   <see cref="Rank"/> and <see cref="Suit"/>.
         /// </summary>
         /// <param name="rank">
-        ///   The <see cref="BlackHen.Bridge.Rank"/> of the card (2-10, J, Q, K and A).
+        ///   The <see cref="Makaretu.Bridge.Rank"/> of the card (2-10, J, Q, K and A).
         /// </param>
         /// <param name="suit">
-        ///   The <see cref="BlackHen.Bridge.Suit"/> of the card (C, D, H and S).
+        ///   The <see cref="Makaretu.Bridge.Suit"/> of the card (C, D, H and S).
         /// </param>
         private Card(Rank rank, Suit suit)
         {
@@ -116,10 +116,10 @@ namespace BlackHen.Bridge
         ///   <see cref="Rank"/> and <see cref="Suit"/>.
         /// </summary>
         /// <param name="rank">
-        ///   The <see cref="BlackHen.Bridge.Rank"/> of the card (2-10, J, Q, K and A).
+        ///   The <see cref="Makaretu.Bridge.Rank"/> of the card (2-10, J, Q, K and A).
         /// </param>
         /// <param name="suit">
-        ///   The <see cref="BlackHen.Bridge.Suit"/> of the card (C, D, H and S).
+        ///   The <see cref="Makaretu.Bridge.Suit"/> of the card (C, D, H and S).
         /// </param>
         public static Card Get(Rank rank, Suit suit)
         {
@@ -145,7 +145,7 @@ namespace BlackHen.Bridge
         ///  Gets the first compoment of the card.
         /// </summary>
         /// <value>
-        ///   One of the <see cref="BlackHen.Bridge.Rank"/> enumeration values.
+        ///   One of the <see cref="Makaretu.Bridge.Rank"/> enumeration values.
         /// </value>
         public Rank Rank { get { return rank; } }
 
@@ -153,7 +153,7 @@ namespace BlackHen.Bridge
         ///   Gets the second compoment of the card.
         /// </summary>
         /// <value>
-        ///   One of the <see cref="BlackHen.Bridge.Suit"/> enumeration values.
+        ///   One of the <see cref="Makaretu.Bridge.Suit"/> enumeration values.
         /// </value>
         public Suit Suit { get { return suit; } }
 

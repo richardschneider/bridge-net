@@ -5,7 +5,7 @@ using System.Runtime.InteropServices;
 using System.Linq;
 using System.Text;
 
-namespace BlackHen.Bridge.Analysis
+namespace Makaretu.Bridge.Analysis
 {
     /// <summary>
     ///   A C# wrapper for Bo Haglund's double dummy solver.

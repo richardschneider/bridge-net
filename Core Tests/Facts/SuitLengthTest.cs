@@ -1,7 +1,7 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace BlackHen.Bridge.Facts
+namespace Makaretu.Bridge.Facts
 {
     [TestClass]
     public class SuitLengthTest
