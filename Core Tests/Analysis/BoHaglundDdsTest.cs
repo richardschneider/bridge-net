@@ -7,7 +7,6 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace BlackHen.Bridge.Analysis
 {
     [TestClass]
-    [DeploymentItem(@"..\Externals\Bo Haglund\DDS 1.19\dds.dll")]
     public class BoHaglundDdsTest
     {
         IDoubleDummy Solver { get { return new BoHaglundDds(); } }

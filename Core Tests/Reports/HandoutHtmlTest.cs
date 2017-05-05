@@ -6,7 +6,6 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace BlackHen.Bridge.Reports
 {
     [TestClass]
-    [DeploymentItem(@"..\Externals\Bo Haglund\DDS 1.19\dds.dll")]
     public class HandoutHtmlTest
     {
         [TestMethod]
