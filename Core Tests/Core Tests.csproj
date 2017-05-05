@@ -72,7 +72,7 @@
     <Compile Include="Facts\SuitHcpTest.cs" />
     <Compile Include="HandGeneratorTest.cs" />
     <Compile Include="Facts\HcpTest.cs" />
-    <Compile Include="Reports\SuitLengthTest.cs" />
+    <Compile Include="Facts\SuitLengthTest.cs" />
     <Compile Include="HandTest.cs" />
     <Compile Include="HandCollectionTest.cs" />
     <Compile Include="DeckTest.cs" />
