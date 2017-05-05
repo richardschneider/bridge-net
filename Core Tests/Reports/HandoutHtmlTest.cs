@@ -23,7 +23,7 @@ namespace BlackHen.Bridge.Reports
             var writer = new StringWriter();
             var report = new HandoutHtml() { Tournament = tournament };
             report.Produce(writer);
-            File.WriteAllText(@"c:\handout.html", writer.ToString(), Encoding.UTF8);
+            //File.WriteAllText(@"c:\handout.html", writer.ToString(), Encoding.UTF8);
         }
 
     }
