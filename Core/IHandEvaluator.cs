@@ -5,8 +5,8 @@ using System.Text;
 
 namespace BlackHen.Bridge
 {
-   public interface IHandEvaluator
-   {
-      List<Fact> Evaluate(Hand hand);
-   }
+    public interface IHandEvaluator
+    {
+        List<Fact> Evaluate(Hand hand);
+    }
 }
