@@ -78,9 +78,16 @@ namespace Makaretu.Bridge.Reports
         {
             report.WriteLine(boardStartHmtl, board.Number);
 
-            report.WriteLine("<tr><td rowspan='4' class='boardnumber'>{0}</td>", board.Number);
+            report.WriteLine("<tr><td rowspan='4' class='boardnumber'>{0}</td>", board.Number == 0 ? "" : board.Number.ToString());
             Produce(report, board, Seat.North, Suit.Spades);
-            report.WriteLine("<td rowspan='4' class='state'>{0} dealer<br/>{1} vul.</td>", board.Dealer, board.Vulnerability);
+            if (board.Number != 0)
+            {
+                report.WriteLine("<td rowspan='4' class='state'>{0} dealer<br/>{1} vul.</td>", board.Dealer, board.Vulnerability);
+            }
+            else
+            {
+                report.WriteLine("<td rowspan='4' class='state'>&nbsp;</td>");
+            }
             report.WriteLine("</tr>");
 
             report.WriteLine("<tr>");
