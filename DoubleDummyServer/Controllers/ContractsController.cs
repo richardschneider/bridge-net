@@ -10,11 +10,24 @@ using System.Net.Http.Headers;
 using System.IO;
 using Makaretu.Bridge.Reports;
 using System.Diagnostics;
+using System.Management;
 
 namespace DoubleDummyServer.Controllers
 {
     public class ContractsController : ApiController
     {
+        /// <summary>
+        ///   CPU clock speed in MHz
+        /// </summary>
+        /// <returns></returns>
+        static long CPUSpeed()
+        {
+            using (var cpu = new ManagementObject("Win32_Processor.DeviceID='CPU0'"))
+            {
+                return (uint)(cpu["CurrentClockSpeed"]);
+            }
+        }
+
         IDoubleDummy Solver { get { return new BoHaglundDds(); } }
 
         // GET api/contracts?pbn=W:KJ95.T.AT873.T98 76.AQJ9642.KJ.QJ QT8.K87.962.A654 A432.53.Q54.K732
@@ -63,6 +76,7 @@ namespace DoubleDummyServer.Controllers
                     Stats = new
                     {
                         ProcessorCount = Environment.ProcessorCount,
+                        ProcessorSpeedMhz = CPUSpeed(),
                         RunTime = stopWatch.Elapsed
                     },
                     Contracts = contracts
