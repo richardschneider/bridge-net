@@ -63,11 +63,16 @@ namespace Makaretu.Bridge.Reports
                 }
             }
 
-            if (column == 0)
-                report.WriteLine("<tr>");
-            report.WriteLine("<td>");
-            ProduceStatistics(report);
-            report.WriteLine("</td>");
+            // Only produce stats when we have multiple boards
+            if (Tournament.Boards.Count > 1)
+            {
+
+                if (column == 0)
+                    report.WriteLine("<tr>");
+                report.WriteLine("<td>");
+                ProduceStatistics(report);
+                report.WriteLine("</td>");
+            }
 
             report.WriteLine("</tr>");
             report.WriteLine("</table>");
