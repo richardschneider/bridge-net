@@ -9,6 +9,7 @@ using System.Web.Http;
 using System.Net.Http.Headers;
 using System.IO;
 using Makaretu.Bridge.Reports;
+using System.Diagnostics;
 
 namespace DoubleDummyServer.Controllers
 {
@@ -18,7 +19,7 @@ namespace DoubleDummyServer.Controllers
 
         // GET api/contracts?pbn=W:KJ95.T.AT873.T98 76.AQJ9642.KJ.QJ QT8.K87.962.A654 A432.53.Q54.K732
         // GET api/contracts?html=true&pbn=W:KJ95.T.AT873.T98 76.AQJ9642.KJ.QJ QT8.K87.962.A654 A432.53.Q54.K732
-        public object Get(string pbn, bool? html = false)
+        public object Get(string pbn, bool? html = false, bool? stats = false)
         {
             var board = new Board
             {
@@ -49,9 +50,27 @@ namespace DoubleDummyServer.Controllers
                 return response;
             }
 
+            // Stats and the data?
+            if (stats.HasValue && stats.Value)
+            {
+                var stopWatch = new Stopwatch();
+                stopWatch.Start();
+                var contracts = Solver.MakeableContracts(board);
+                stopWatch.Stop();
+
+                return new
+                {
+                    Stats = new
+                    {
+                        ProcessorCount = Environment.ProcessorCount,
+                        RunTime = stopWatch.Elapsed
+                    },
+                    Contracts = contracts
+                };
+            }
+
             // Just return the data.
-            return Solver
-                .MakeableContracts(board);
+            return Solver.MakeableContracts(board);
         }
 
     }
