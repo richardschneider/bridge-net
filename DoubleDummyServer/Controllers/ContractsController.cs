@@ -6,6 +6,9 @@ using Makaretu.Bridge.Analysis;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using System.Net.Http.Headers;
+using System.IO;
+using Makaretu.Bridge.Reports;
 
 namespace DoubleDummyServer.Controllers
 {
@@ -14,7 +17,8 @@ namespace DoubleDummyServer.Controllers
         IDoubleDummy Solver { get { return new BoHaglundDds(); } }
 
         // GET api/contracts?pbn=W:KJ95.T.AT873.T98 76.AQJ9642.KJ.QJ QT8.K87.962.A654 A432.53.Q54.K732
-        public DoubleDummySolution Get(string pbn)
+        // GET api/contracts?html=true&pbn=W:KJ95.T.AT873.T98 76.AQJ9642.KJ.QJ QT8.K87.962.A654 A432.53.Q54.K732
+        public object Get(string pbn, bool? html = false)
         {
             var board = new Board
             {
@@ -30,6 +34,22 @@ namespace DoubleDummyServer.Controllers
             if (board.Hands[Seat.West].Cards.Count != 13)
                 throw new FormatException("West needs 13 cards.");
 
+            // Return HTML report?
+            if (html.HasValue && html.Value)
+            {
+                var tournament = new Tournament();
+                tournament.Boards.Add(board);
+                var writer = new StringWriter();
+                var report = new HandoutHtml() { Tournament = tournament };
+                report.Produce(writer);
+
+                var response = new HttpResponseMessage();
+                response.Content = new StringContent(writer.ToString());
+                response.Content.Headers.ContentType = new MediaTypeHeaderValue("text/html");
+                return response;
+            }
+
+            // Just return the data.
             return Solver
                 .MakeableContracts(board);
         }
