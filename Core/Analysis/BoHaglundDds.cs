@@ -30,6 +30,7 @@ namespace Makaretu.Bridge.Analysis
                 log.Debug("Starting MakeableContracts");
 
             var dds = new DoubleDummySolution();
+            var threadIndex = 0;
             var futureTricks = new Solver.futureTricks();
             futureTricks.rank = new int[13];
             futureTricks.score = new int[13];
@@ -68,7 +69,7 @@ namespace Makaretu.Bridge.Analysis
                     if (log.IsTraceEnabled)
                         log.Trace(string.Format("Solving {0} for {1}", trump, declaror));
 
-                    int status = Solver.SolveBoard(deal, target, solutions, mode, ref futureTricks);
+                    int status = Solver.SolveBoard(deal, target, solutions, mode, ref futureTricks, threadIndex);
                     if (status < 0)
                         throw new Exception(string.Format("Bo Haglund's DDS returned error code of {0}.", status));
                     int minTricks = 13;
@@ -161,7 +162,8 @@ namespace Makaretu.Bridge.Analysis
                int target,
                int solutions,
                int mode,
-               [In] [Out] ref futureTricks futureTricks // struct futureTricks *futp
+               [In] [Out] ref futureTricks futureTricks, // struct futureTricks *futp
+               int threadIndex // 0-15
              );
         }
     }
