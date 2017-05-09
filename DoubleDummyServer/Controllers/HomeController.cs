@@ -10,7 +10,7 @@ namespace DoubleDummyServer.Controllers
     {
         public ActionResult Index()
         {
-            ViewBag.Title = "Home Page";
+            ViewBag.Title = "Double Dummy Solver";
 
             return View();
         }
