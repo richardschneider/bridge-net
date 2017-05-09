@@ -6,12 +6,12 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace Makaretu.Bridge.Reports
 {
     [TestClass]
-    public class HandoutHtmlTest
+    public class HandRecordTest
     {
         [TestMethod]
         public void Properties()
         {
-            var report = new HandoutHtml();
+            var report = new HandRecord();
             Assert.AreEqual(3, report.Columns);
         }
 
@@ -21,7 +21,7 @@ namespace Makaretu.Bridge.Reports
             var tournament = new Tournament();
             tournament.GenerateBoards(2);
             var writer = new StringWriter();
-            var report = new HandoutHtml() { Tournament = tournament };
+            var report = new HandRecord() { Tournament = tournament };
             report.Produce(writer);
             //File.WriteAllText(@"c:\handout.html", writer.ToString(), Encoding.UTF8);
         }

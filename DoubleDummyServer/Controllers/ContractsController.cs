@@ -54,7 +54,7 @@ namespace DoubleDummyServer.Controllers
                 var tournament = new Tournament();
                 tournament.Boards.Add(board);
                 var writer = new StringWriter();
-                var report = new HandoutHtml() { Tournament = tournament };
+                var report = new HandRecord() { Tournament = tournament };
                 report.Produce(writer);
 
                 var response = new HttpResponseMessage();

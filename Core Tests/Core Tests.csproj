@@ -65,7 +65,7 @@
     <Compile Include="CardCollectionTest.cs" />
     <Compile Include="GameTest.cs" />
     <Compile Include="Scoring\ContractScorerTest.cs" />
-    <Compile Include="Reports\HandoutHtmlTest.cs" />
+    <Compile Include="Reports\HandRecordTest.cs" />
     <Compile Include="Scoring\MatchpointsTest.cs" />
     <Compile Include="TournamentTest.cs" />
     <Compile Include="Facts\BalancedTest.cs" />

@@ -14,12 +14,12 @@ namespace Makaretu.Bridge.Reports
     /// <summary>
     ///   Produces an HTML page containing the boards of a <see cref="Tournament"/>.
     /// </summary>
-    public class HandoutHtml
+    public class HandRecord
     {
         /// <summary>
-        ///   Creates a new instance of the <see cref="HandoutHtml"/> class.
+        ///   Creates a new instance of the <see cref="HandRecord"/> class.
         /// </summary>
-        public HandoutHtml()
+        public HandRecord()
         {
             Columns = 3;
         }
@@ -253,7 +253,8 @@ namespace Makaretu.Bridge.Reports
 <!DOCTYPE html PUBLIC ""-//W3C//DTD XHTML 1.0 Transitional//EN"" ""http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"">
 <html>
 <head>
-   <title>Event</title>
+   <meta charset='utf-8' />
+   <title>Hand Record</title>
    <style type='text/css'>
 @media print
 {
