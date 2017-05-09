@@ -1,0 +1,67 @@
+﻿<h1>Solver</h1>
+
+<form>
+    <div class="form-group row">
+        <div class="col-xs-12">
+            <label for="hand">Hand</label>
+            <input type="text" class="form-control" id="hand">
+            <span class="help-block">
+                Enter the hand in PBN notation or
+                <a id="randomHand" href="">generate</a> a random hand.
+            </span>
+        </div>
+    </div>
+</form>
+
+<script src="https://unpkg.com/bridge.js/dist/bridge.min.js"></script>
+
+<script>
+    $(document).ready(function () {
+
+        /* Generate a random hand */
+        $('#randomHand').click(function (e) {
+            var hands = new bridge.Deck()
+                  .shuffle()
+                  .deal(bridge.seat.west);
+            e.preventDefault();
+            alert("North's hand  " + hands.north);
+        });
+    });
+
+    /*
+        var locales = [
+            'jp', 'hi-IN', 'zh-Hans-CN', 'zh-Hans-CN-u-nu-hanidec', 'th-TH-u-nu-thai',
+            'fr-FR', 'fr-CA', 'de-DE', 'en-US', 'en-GB'
+        ];
+        $(document).ready(function() {
+
+            function show() {
+                var tbody = $('#format tbody'),
+                    amount = $('#amount').val(),
+                    currency = $('#currency').text(),
+                    money = new Money(amount, currency);
+                tbody.empty();
+                locales.forEach(function (locale) {
+                    tbody.append('<tr><td>' + locale + '</td> <td>' + money.toLocaleString(locale) + '</td></tr>');
+                });
+            }
+
+            $('#selectCurrency').click(function (e) {
+                var currency = e.target.innerText;
+                $('#currency').text(currency);
+                e.preventDefault();
+                show();
+            });
+
+            $('#amount').keypress(function(e) {
+                if(e.which === 13) {
+                    e.preventDefault();
+                    show();
+                }
+            });
+
+
+            show();
+        });
+            */
+</script>
