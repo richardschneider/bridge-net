@@ -285,15 +285,15 @@ table.board {page-break-before: auto}
          margin: 0px;
          border-spacing: 0px;
          border-collapse: collapse;
-         font: 9pt Arial Black;
+         font: 9pt Verdana Black;
       }
       table.stats { height: 100%; vertical-align: top; }
-      table.stats td { font: 9pt Arial; }
+      table.stats td { font: 9pt Verdana; }
       table.stats tbody th { text-align: left; font: normal 8pt verdana; }
 
       td.suit 
       { 
-         font: 9pt Arial Black;
+         font: 9pt Verdana Black;
          letter-spacing: 0px;
          padding: 0px;
          margin: 0px;
@@ -302,12 +302,12 @@ table.board {page-break-before: auto}
       }
       span.rags 
       { 
-         font: 9pt Arial;
+         font: 9pt Verdana;
          letter-spacing: 0px;
       }
       rags 
       { 
-         font: 9pt Arial;
+         font: 9pt Verdana;
          letter-spacing: 0px;
       }
       span.rsuit 
@@ -338,7 +338,7 @@ table.board {page-break-before: auto}
          margin: 0px;
          border-spacing: 0px;
          border-collapse: collapse;
-         font: normal 8pt Arial;
+         font: normal 8pt Verdana;
          text-align: center;
          vertical-align: middle;
       }
