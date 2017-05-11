@@ -11,9 +11,11 @@ using System.IO;
 using Makaretu.Bridge.Reports;
 using System.Diagnostics;
 using System.Management;
+using GoogleAnalyticsTracker.WebAPI2;
 
 namespace DoubleDummyServer.Controllers
 {
+    [ActionTracking("UA-99022219-1", "dds-3.apphb.com")]
     public class ContractsController : ApiController
     {
         /// <summary>
