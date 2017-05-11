@@ -260,6 +260,8 @@ namespace Makaretu.Bridge.Reports
 {
 table.board {page-break-before: auto}
 }
+      html { background-color: white; }
+
       table.handout
       {
          padding: 0px;
