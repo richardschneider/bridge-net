@@ -1,67 +1,89 @@
-﻿<h1>Solver</h1>
+﻿<h1>Contract solver</h1>
 
 <form>
     <div class="form-group row">
         <div class="col-xs-12">
-            <label for="hand">Hand</label>
-            <input type="text" class="form-control" id="hand">
+            <label for="hand">Deal</label>
+            <div class="form-group has-feedback">
+                <input type="text" class="form-control" id="hand"
+                       data-container="body"
+                       data-toggle="popover" data-trigger="hover" 
+                       data-placement="bottom" 
+                       data-content='Defined as "<first>:<1st_hand> <2nd_hand> <3rd_hand> <4th_hand>".  The 4 hands are given in clockwise rotation.  A space character exists between two consecutive hands.  The direction of the <1st_hand> is indicated by <first>, being W (West), N (North), E (East), or S (South).  The cards of each hand are given in the order:  spades, hearts, diamonds, clubs.  A dot character "." exists between two consecutive suits of a hand.' />
+                <a href="" class="glyphicon glyphicon-question-sign form-control-feedback"></a>
+            </div>
             <span class="help-block">
-                Enter the hand in PBN notation or
-                <a id="randomHand" href="">generate</a> a random hand.
+                Enter the hands in PBN notation or
+                <a id="randomHand" href="">generate</a> a random deal.
             </span>
         </div>
     </div>
+    <div class="form-group">
+        <a id="solve" class="btn btn-primary" href="">Solve it</a>
+    </div>
 </form>
+
+<hr />
+<script>
+    function autoResize() {
+        $('#solution').height($('#solution').contents().height());
+    }
+</script>
+<iframe id="solution"
+        onload="autoResize()"
+        src="about:blank"
+        hidden
+        frameborder="0"
+        style="overflow:hidden;height:100%;width:100%"
+        height="100%" width="100%">
+    <p>Your browser does not support iframes.</p>
+</iframe>
+
 
 <script src="https://unpkg.com/bridge.js/dist/bridge.min.js"></script>
 
 <script>
+    function autoResize() {
+        $('#solution').height($('#solution').contents().height());
+    }
+
     $(document).ready(function () {
 
         /* Generate a random hand */
-        $('#randomHand').click(function (e) {
+        function generateHand() {
             var hands = new bridge.Deck()
                   .shuffle()
                   .deal(bridge.seat.west);
+            var pbn = bridge.pbn.exportDeal(hands);
+            $('#hand').val(pbn);
+            solve();
+        }
+
+        /* Solve the deal */
+        function solve() {
+            $('#solution').attr('src', 'about:blank');
+            setTimeout(function () {
+                var url = '/api/contracts?html=true&pbn=' + $('#hand').val();
+                $('#solution').attr('src', url);
+                $('#solution').show();
+            }, 100);
+        }
+
+        $('#randomHand').click(function (e) {
             e.preventDefault();
-            alert("North's hand  " + hands.north);
+            generateHand();
         });
+
+        $('#solve').click(function (e) {
+            e.preventDefault();
+            solve();
+        });
+
+        $('[data-toggle="popover"]').popover();
+
+
+        /* Startup code */
+        generateHand();
     });
 
-    /*
-        var locales = [
-            'jp', 'hi-IN', 'zh-Hans-CN', 'zh-Hans-CN-u-nu-hanidec', 'th-TH-u-nu-thai',
-            'fr-FR', 'fr-CA', 'de-DE', 'en-US', 'en-GB'
-        ];
-        $(document).ready(function() {
-
-            function show() {
-                var tbody = $('#format tbody'),
-                    amount = $('#amount').val(),
-                    currency = $('#currency').text(),
-                    money = new Money(amount, currency);
-                tbody.empty();
-                locales.forEach(function (locale) {
-                    tbody.append('<tr><td>' + locale + '</td> <td>' + money.toLocaleString(locale) + '</td></tr>');
-                });
-            }
-
-            $('#selectCurrency').click(function (e) {
-                var currency = e.target.innerText;
-                $('#currency').text(currency);
-                e.preventDefault();
-                show();
-            });
-
-            $('#amount').keypress(function(e) {
-                if(e.which === 13) {
-                    e.preventDefault();
-                    show();
-                }
-            });
-
-
-            show();
-        });
-            */
 </script>
