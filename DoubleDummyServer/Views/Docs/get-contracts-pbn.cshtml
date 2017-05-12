@@ -4,10 +4,68 @@
     <h1>GET api/contracts?pbn={pbn}</h1>
     <p>Returns the makeable contracts as an JSON array for the specified PBN deal.</p>
     <p>
-        <b>{pbn}</b> specifies the cards of each hand.  It is formatted as a 
-        <a href="http://pbn.tistis.nl/pbn_v21.txt">PBN Deal tag</a>,
-        for example
-        <code>"W:KJ95.T.AT873.T98 76.AQJ9642.KJ.QJ QT8.K87.962.A654 A432.53.Q54.K732"</code>.
+        <b>{pbn}</b> specifies the cards of each hand.  It is formatted as a
+        <a href="http://pbn.tistis.nl/pbn_v21.txt">PBN Deal tag</a> with the exception
+        that a space is converted to a <kbd>+</kbd> or <kbd>%20</kbd>.
+        For example
+        <code>W:KJ95.T.AT873.T98+76.AQJ9642.KJ.QJ+QT8.K87.962.A654+A432.53.Q54.K732</code>.
     </p>
+
+    <h2>Example</h2>
+    <p>
+        <pre><code>GET /api/contracts?pbn=W:KJ95.T.AT873.T98+76.AQJ9642.KJ.QJ+QT8.K87.962.A654+A432.53.Q54.K732 HTTP/1.1
+Host: dds-3.apphb.com</code></pre>
+    </p>
+    <p>
+        <pre><code>HTTP/1.1 200 OK
+Content-Type: application/json; charset=utf-8
+
+[
+   {
+     "risk" : "none",
+     "declaror" : "east",
+     "level" : 1,
+     "tricks" : 7,
+     "denomination" : "clubs"
+   },
+   ...
+]</code></pre>
+    </p>
+
+    <h2>Resources</h2>
+    <h3>Contract</h3>
+    <table class="help-page-table">
+        <thead>
+            <tr><th>Name</th><th>Description</th><th>Additional information</th></tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>risk</td>
+                <td><i>not used</i></td>
+                <td>Always "none"</td>
+            </tr>
+            <tr>
+                <td>declaror</td>
+                <td>The player who first bid the denomination</td>
+                <td>"north", "east", "south", or "west"</td>
+            </tr>
+            <tr>
+                <td>level</td>
+                <td>The level of the contract</td>
+                <td>A value between 1 and 7</td>
+            </tr>
+            <tr>
+                <td>tricks</td>
+                <td>The number of tricks that can be made</td>
+                <td>This is simply <code>level + 6</code></td>
+            </tr>
+            <tr>
+                <td>denomination</td>
+                <td>The trump suit or notrumps</td>
+                <td>"clubs", "diamonds", "hearts", "spades" or "noTrumps"</td>
+            </tr>
+        </tbody>
+    </table>
+
 </section>
 
