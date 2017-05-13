@@ -1,1 +1,47 @@
-﻿<h1>html</h1>
+﻿<link type="text/css" href="/Areas/HelpPage/HelpPage.css" rel="stylesheet" />
+
+<div id="body">
+
+    <section class="content-wrapper main-content clear-fix">
+        <h1>GET api/contracts?pbn={pbn}&amp;html=true</h1>
+        <p>
+            Returns the "hand record" for the specified PBN deal. This is an entire HTML
+            document containing the hands, high card points and makeable contract.
+        </p>
+        <p>
+            <b>pbn</b> specifies the cards of each hand.  It is formatted as a
+            <a href="http://pbn.tistis.nl/pbn_v21.txt">PBN Deal tag</a>.
+            For example
+            <code style="word-break: break-all">W:KJ95.T.AT873.T98 76.AQJ9642.KJ.QJ QT8.K87.962.A654 A432.53.Q54.K732</code>.
+            The value must be <a href="https://developer.mozilla.org/en-US/docs/Glossary/percent-encoding">URL encoded</a>,
+            a <kbd>space</kbd> is converted to a <kbd>+</kbd>
+            or <kbd>%20</kbd>.
+        </p>
+        <p>
+            <b>html</b> must be true.
+        </p>
+
+        <h2>Example</h2>
+        <p>
+            <pre><code>GET /api/contracts?pbn=W:KJ95.T.AT873.T98+76.AQJ9642.KJ.QJ+QT8.K87.962.A654+A432.53.Q54.K732&amp;html=true HTTP/1.1
+Host: dds-3.apphb.com</code></pre>
+        </p>
+        <p>
+            <pre><code>HTTP/1.1 200 OK
+Content-Type: text/html
+
+&lt;!DOCTYPE html PUBLIC 
+          "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+          "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+&lt;html>
+...
+&lt;/html></code></pre>
+        </p>
+        
+        <h3>Rendered</h3>
+        <img src="~/Content/hand-record.jpeg" />
+
+
+    </section>
+
+</div>
