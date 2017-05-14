@@ -12,10 +12,12 @@ using Makaretu.Bridge.Reports;
 using System.Diagnostics;
 using System.Management;
 using GoogleAnalyticsTracker.WebAPI2;
+using System.Web.Http.Cors;
 
 namespace DoubleDummyServer.Controllers
 {
     [ActionTracking("UA-99022219-1", "dds-3.apphb.com")]
+    [EnableCors(origins: "*", headers: "*", methods: "*")]
     public class ContractsController : ApiController
     {
         /// <summary>

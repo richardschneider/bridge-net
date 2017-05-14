@@ -1,0 +1,56 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>AJAX DDS</title>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+</head>
+
+<body>
+
+    <h1>Double dummy solver with AJAX</h1>
+
+    <table>
+        <tr>
+            <td>north</td>
+            <td id="north"></td>
+        </tr>
+        <tr>
+            <td>south</td>
+            <td id="south"></td>
+        </tr>
+        <tr>
+            <td>east</td>
+            <td id="east"></td>
+        </tr>
+        <tr>
+            <td>west</td>
+            <td id="west"></td>
+        </tr>
+    </table>
+
+<script>
+    $(document).ready(function () {
+        var solver = "http://dds-3.apphb.com/api/contracts";
+        var deal = "S:J82.AK86.Q864.54 93.J5.AT3.AKQJ32 AK65.74.KJ975.87 QT74.QT932.2.T96";
+        var query = {
+            pbn: deal
+        };
+        $.getJSON(solver, query)
+            .success(function (solutions) {
+                solutions.forEach(function (contract) {
+                    var bid = contract.level + ' ' + contract.denomination + ' ';
+                    $('#' + contract.declaror).append(bid);
+                    console.log(contract);
+                })
+            })
+            .error(function () {
+                alert("DDS error");
+            });
+    });
+</script>
+
+</body>
+</html>
