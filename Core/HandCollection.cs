@@ -53,6 +53,30 @@ namespace Makaretu.Bridge
             return otherHands;
         }
 
+        /// <summary>
+        ///   Returns the hands as a PBN deal string.
+        /// </summary>
+        ///  <param name="dealer"></param>
+        ///  <seealso cref="ParsePbn"/>
+        public string ToPbn(Seat dealer = Seat.South)
+        {
+            var pbn = new StringBuilder();
+            pbn.Append(dealer.ToString()[0]);
+            pbn.Append(':');
+
+            for (int i = 0; i < Board.SeatCount; ++i)
+            {
+                if (i != 0)
+                {
+                    pbn.Append(' ');
+                }
+                pbn.Append(this[dealer].ToString("P"));
+                dealer = NextSeat(dealer);
+            }
+
+            return pbn.ToString();
+        }
+
         public static HandCollection ParsePbn(string s)
         {
             if (s.IndexOf(':') != 1)

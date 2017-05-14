@@ -81,6 +81,8 @@ namespace Makaretu.Bridge
                     showSuit = true;
                     break;
                 case "P":
+                    if (Cards.Count == 0)
+                        return "-";
                     suitSeperator = ".";
                     showSuit = false;
                     break;
@@ -110,7 +112,7 @@ namespace Makaretu.Bridge
                     }
                 }
 
-                if (suit != lastSuit)
+                if (suit != lastSuit && s.Length > 0)
                 {
                     if (s[s.Length - 1] == ' ')
                         s.Length -= 1;

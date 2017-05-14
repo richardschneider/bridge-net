@@ -74,5 +74,13 @@ namespace Makaretu.Bridge
             CollectionAssert.Contains(hands[Seat.West].Cards, Card.Parse("KS"));
             CollectionAssert.Contains(hands[Seat.East].Cards, Card.Parse("6C"));
         }
+
+        [TestMethod]
+        public void ToPbn()
+        {
+            var pbn = "W:KQT2.AT.J6542.85 - A8654.KQ5.T.QJT6 -";
+            var hands = HandCollection.ParsePbn(pbn);
+            Assert.AreEqual(pbn, hands.ToPbn(Seat.West));
+        }
     }
 }
