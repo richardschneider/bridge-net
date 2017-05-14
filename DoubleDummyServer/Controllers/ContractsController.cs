@@ -13,11 +13,13 @@ using System.Diagnostics;
 using System.Management;
 using GoogleAnalyticsTracker.WebAPI2;
 using System.Web.Http.Cors;
+using WebApi.OutputCache.V2;
 
 namespace DoubleDummyServer.Controllers
 {
     [ActionTracking("UA-99022219-1", "dds-3.apphb.com")]
     [EnableCors(origins: "*", headers: "*", methods: "*")]
+    [CacheOutput(ClientTimeSpan = 24 * 60 * 60, ServerTimeSpan = 24 * 60 * 60)]
     public class ContractsController : ApiController
     {
         /// <summary>
