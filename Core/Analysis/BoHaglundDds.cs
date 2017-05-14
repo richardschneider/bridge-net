@@ -13,6 +13,16 @@ namespace Makaretu.Bridge.Analysis
     public class BoHaglundDds : IDoubleDummy
     {
         static ILog log = LogManager.GetLogger(typeof(BoHaglundDds));
+        static Denomination[] strainOrder = new Denomination[]
+        {
+            Denomination.Spades, Denomination.Hearts,
+            Denomination.Diamonds, Denomination.Clubs,
+            Denomination.NoTrumps
+        };
+        static Seat[] seatOrder = new Seat[]
+        {
+            Seat.North, Seat.East, Seat.South, Seat.West
+        };
 
         /// <summary>
         ///   Determines all the contracts that can be made for the specified <see cref="Board"/>.
@@ -29,101 +39,37 @@ namespace Makaretu.Bridge.Analysis
             if (log.IsDebugEnabled)
                 log.Debug("Starting MakeableContracts");
 
-            var dds = new DoubleDummySolution();
-            var threadIndex = 0;
-            var futureTricks = new Solver.futureTricks();
-            futureTricks.rank = new int[13];
-            futureTricks.score = new int[13];
-            futureTricks.suit = new int[13];
-            futureTricks.equals = new int[13];
-
-            const int target = -1;
-            const int solutions = 1;
-            var deal = new Solver.deal();
-            deal.currentTrickRank = new int[3];
-            deal.currentTrickSuit = new int[3];
-            deal.remainCards = new uint[16];
-            Convert(board, deal);
-
-            foreach (var trump in new Denomination[] { Denomination.Clubs, Denomination.Diamonds, Denomination.Hearts, Denomination.Spades, Denomination.NoTrumps })
+            var table = new Solver.tableDealPBN(board.Hands.ToPbn(board.Dealer));
+            var results = new Solver.tableResults
             {
-                switch (trump)
-                {
-                    case Denomination.Spades: deal.trump = 0; break;
-                    case Denomination.Hearts: deal.trump = 1; break;
-                    case Denomination.Diamonds: deal.trump = 2; break;
-                    case Denomination.Clubs: deal.trump = 3; break;
-                    case Denomination.NoTrumps: deal.trump = 4; break;
-                }
-                int mode = 1;
-                foreach (var declaror in new Seat[] { Seat.North, Seat.South, Seat.East, Seat.West })
-                {
-                    switch (Board.NextSeat(declaror))
-                    {
-                        case Seat.North: deal.first = 0; break;
-                        case Seat.East: deal.first = 1; break;
-                        case Seat.South: deal.first = 2; break;
-                        case Seat.West: deal.first = 3; break;
-                    }
+                solution = new int[20]
+            };
+            var status = Solver.CalcDDtablePBN(table, ref results);
+            if (status < 0)
+                throw new Exception(string.Format("Bo Haglund's DDS returned error code of {0}.", status));
 
-                    if (log.IsTraceEnabled)
-                        log.Trace(string.Format("Solving {0} for {1}", trump, declaror));
-
-                    int status = Solver.SolveBoard(deal, target, solutions, mode, ref futureTricks, threadIndex);
-                    if (status < 0)
-                        throw new Exception(string.Format("Bo Haglund's DDS returned error code of {0}.", status));
-                    int minTricks = 13;
-                    for (int i = 0; i < futureTricks.cards; ++i)
+            var dds = new DoubleDummySolution();
+            var next = 0;
+            foreach (var strain in strainOrder)
+            {
+                foreach (var declaror in seatOrder)
+                {
+                    var tricks = results.solution[next++];
+                    if (tricks > 6)
                     {
-                        int tricks = futureTricks.score[i];
-                        if (tricks < minTricks)
-                            minTricks = tricks;
-                    }
-                    if (minTricks > 6)
-                    {
-                        var contract = new Contract(minTricks - 6, trump, Risk.None, declaror);
+                        var contract = new Contract(tricks - 6, strain, Risk.None, declaror);
                         dds.Add(contract);
 
                         if (log.IsDebugEnabled)
                             log.Debug(contract.ToString());
                     }
-                    mode = 2;
                 }
             }
 
             if (log.IsDebugEnabled)
                 log.Debug("Finished MakeableContracts");
+
             return dds;
-        }
-
-        void Convert(Board board, Solver.deal deal)
-        {
-            for (int i = 0; i < 16; ++i)
-                deal.remainCards[i] = 0;
-
-            foreach (var seat in new Seat[] { Seat.North, Seat.South, Seat.East, Seat.West })
-            {
-                int seatBase = 0;
-                switch (Board.NextSeat(seat))
-                {
-                    case Seat.North: seatBase = 0; break;
-                    case Seat.East: seatBase = 4; break;
-                    case Seat.South: seatBase = 2 * 4; break;
-                    case Seat.West: seatBase = 3 * 4; break;
-                }
-                foreach (var card in board.Hands[seat].Cards)
-                {
-                    int suitOffset = 0;
-                    switch (card.Suit)
-                    {
-                        case Suit.Spades: suitOffset = 0; break;
-                        case Suit.Hearts: suitOffset = 1; break;
-                        case Suit.Diamonds: suitOffset = 2; break;
-                        case Suit.Clubs: suitOffset = 3; break;
-                    }
-                    deal.remainCards[seatBase + suitOffset] |= (uint)(1 << (int)card.Rank);
-                }
-            }
         }
 
         class Solver
@@ -165,6 +111,33 @@ namespace Makaretu.Bridge.Analysis
                [In] [Out] ref futureTricks futureTricks, // struct futureTricks *futp
                int threadIndex // 0-15
              );
+
+            [StructLayout(LayoutKind.Sequential)]
+            public struct tableDealPBN
+            {
+                [MarshalAs(UnmanagedType.ByValArray, SizeConst = 80)]
+                public char[] cards;
+
+                public tableDealPBN(string pbnCards)
+                {
+                    cards = new char[80];
+                    for (int i = 0; i < pbnCards.Length; i++)
+                        cards[i] = pbnCards[i];
+                }
+            }
+
+            [StructLayout(LayoutKind.Sequential)]
+            public struct tableResults
+            {
+                [MarshalAs(UnmanagedType.ByValArray, SizeConst = 20)] 
+                public int[] solution;
+            }
+
+            [DllImport("dds.dll")]
+            public static extern int CalcDDtablePBN(
+                [In] tableDealPBN deal,
+                [In] [Out] ref tableResults results
+            );
         }
     }
 }
