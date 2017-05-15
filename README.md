@@ -1,7 +1,7 @@
 # Makaretu Bridge
 
 [![build status](https://ci.appveyor.com/api/projects/status/github/richardschneider/bridge-net?branch=master&svg=true)](https://ci.appveyor.com/project/richardschneider/bridge-net) 
-[![Version](https://img.shields.io/nuget/v/Ipfs.Core.svg)](https://www.nuget.org/packages/Makaretu.Bridge)
+[![Version](https://img.shields.io/nuget/v/makaretu.bridge.svg)](https://www.nuget.org/packages/Makaretu.Bridge)
 
  C# model for contract (duplicate) bridge.
 
