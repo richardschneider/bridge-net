@@ -1,6 +1,10 @@
 # gitversion will change the version number
 version: x-{build}
 
+branches:
+  only:
+    - master
+
 configuration: Release
 os: Visual Studio 2015
 
