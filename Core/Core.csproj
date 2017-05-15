@@ -84,6 +84,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassDiagram1.cd" />
+    <None Include="Bridge.nuspec" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
