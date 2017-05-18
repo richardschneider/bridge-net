@@ -216,6 +216,7 @@
     <Content Include="Views\Docs\get-contracts-pbn.cshtml" />
     <Content Include="Views\Docs\get-contracts-pbn-stats.cshtml" />
     <Content Include="Views\Docs\get-contracts-pbn-html.cshtml" />
+    <Content Include="Views\Shared\_Disqus.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
