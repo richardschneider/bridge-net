@@ -57,7 +57,7 @@ namespace DoubleDummyServer.Controllers
             // Return HTML report?
             if (html.HasValue && html.Value)
             {
-                var tournament = new Tournament();
+                var tournament = new Session();
                 tournament.Boards.Add(board);
                 var writer = new StringWriter();
                 var report = new HandRecord() { Tournament = tournament };

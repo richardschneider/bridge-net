@@ -27,7 +27,7 @@ namespace Makaretu.Bridge.Reports
         /// <summary>
         ///   The <see cref="Tournament"/> used for reporting.
         /// </summary>
-        public Tournament Tournament { get; set; }
+        public Session Tournament { get; set; }
 
         /// <summary>
         ///   The number of columns in the report.

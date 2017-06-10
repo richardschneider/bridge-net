@@ -16,7 +16,7 @@ namespace Makaretu.Bridge
     public class Pair
     {
         /// <summary>
-        ///   The number assigned to the <see cref="Pair"/> for the <see cref="Tournament"/>.
+        ///   The number assigned to the <see cref="Pair"/> for the <see cref="Session"/>.
         /// </summary>
         /// <remarks>
         ///   This is usually the table number that the <see cref="Pair"/> are initially

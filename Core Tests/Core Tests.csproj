@@ -67,7 +67,7 @@
     <Compile Include="Scoring\ContractScorerTest.cs" />
     <Compile Include="Reports\HandRecordTest.cs" />
     <Compile Include="Scoring\MatchpointsTest.cs" />
-    <Compile Include="TournamentTest.cs" />
+    <Compile Include="SessionTest.cs" />
     <Compile Include="Facts\BalancedTest.cs" />
     <Compile Include="Facts\SuitHcpTest.cs" />
     <Compile Include="HandGeneratorTest.cs" />

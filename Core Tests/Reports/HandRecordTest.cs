@@ -18,7 +18,7 @@ namespace Makaretu.Bridge.Reports
         [TestMethod]
         public void Produce()
         {
-            var tournament = new Tournament();
+            var tournament = new Session();
             tournament.GenerateBoards(2);
             var writer = new StringWriter();
             var report = new HandRecord() { Tournament = tournament };

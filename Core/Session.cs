@@ -6,17 +6,25 @@ using System.Text;
 namespace Makaretu.Bridge
 {
     /// <summary>
-    ///   An organized duplicate bridge competition.
+    ///   A period of play during which those entered in an event play designated 
+    ///   boards against designated opponents.
     /// </summary>
-    public class Tournament
+    public class Session
     {
         /// <summary>
-        ///   Creates a new instance of the <see cref="Tournament"/> class.
+        ///   Creates a new instance of the <see cref="Session"/> class.
         /// </summary>
-        public Tournament()
+        public Session()
         {
             Boards = new List<Board>(0);
+            Name = "";
         }
+
+        /// <summary>
+        ///   The name of the session.
+        /// </summary>
+        /// <value>Morning/Afternoon, 1st/2nd, Tuesday/Wednesday, etc. Defaults to "".</value>
+        public string Name { get; set; }
 
         /// <summary>
         ///   The boards (hands) used during the competition.
@@ -29,7 +37,7 @@ namespace Makaretu.Bridge
 
         /// <summary>
         ///   Generates the specified number of random <see cref="Boards"/> for the
-        ///   <see cref="Tournament"/>.
+        ///   <see cref="Session"/>.
         /// </summary>
         /// <param name="boardCount">
         ///    The number of <see cref="Boards"/> to create.

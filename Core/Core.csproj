@@ -80,7 +80,7 @@
     <Compile Include="Reports\HandRecord.cs" />
     <Compile Include="Scoring\ContractScorer.cs" />
     <Compile Include="Scoring\Matchpoints.cs" />
-    <Compile Include="Tournament.cs" />
+    <Compile Include="Session.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassDiagram1.cd" />

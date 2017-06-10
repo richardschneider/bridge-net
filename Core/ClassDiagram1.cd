@@ -30,7 +30,7 @@
       <Compartment Name="Fields" Collapsed="true" />
     </Compartments>
     <TypeIdentifier>
-      <HashCode>AAAAAQIAAIAAAAAEEEAAAEAAAAAAAAAAAAAAAAAAAAg=</HashCode>
+      <HashCode>AAAAAQIAAIAAAAAEEEAAAEAAAAAAAAAAAAAAAAAABAg=</HashCode>
       <FileName>Board.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
@@ -72,8 +72,8 @@
       <FileName>Contract.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
-      <Property Name="Declaror" />
       <Property Name="Risk" />
+      <Property Name="Declaror" />
     </ShowAsAssociation>
   </Class>
   <Class Name="Makaretu.Bridge.Hand">
@@ -90,11 +90,11 @@
       <Property Name="Facts" />
     </ShowAsCollectionAssociation>
   </Class>
-  <Class Name="Makaretu.Bridge.Tournament">
+  <Class Name="Makaretu.Bridge.Session">
     <Position X="0.5" Y="2.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAACAAAAA=</HashCode>
-      <FileName>Tournament.cs</FileName>
+      <FileName>Session.cs</FileName>
     </TypeIdentifier>
     <ShowAsCollectionAssociation>
       <Property Name="Boards" />
@@ -102,56 +102,27 @@
   </Class>
   <Class Name="Makaretu.Bridge.Game">
     <Position X="2.75" Y="6.25" Width="1.5" />
-    <AssociationLine Name="EastWest" Type="Makaretu.Bridge.Pair" FixedFromPoint="true" FixedToPoint="true">
-      <Path>
-        <Point X="3.5" Y="7.231" />
-        <Point X="3.5" Y="9.5" />
-        <Point X="2" Y="9.5" />
-      </Path>
-    </AssociationLine>
-    <AssociationLine Name="NorthSouth" Type="Makaretu.Bridge.Pair" FixedFromPoint="true" FixedToPoint="true">
-      <Path>
-        <Point X="3.094" Y="7.231" />
-        <Point X="3.094" Y="9.125" />
-        <Point X="2" Y="9.125" />
-      </Path>
-    </AssociationLine>
-    <AssociationLine Name="Board" Type="Makaretu.Bridge.Board" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
-      <Path>
-        <Point X="3.125" Y="6.25" />
-        <Point X="3.125" Y="4.636" />
-        <Point X="3.125" Y="4.636" />
-        <Point X="3.125" Y="3.152" />
-      </Path>
-    </AssociationLine>
     <TypeIdentifier>
-      <HashCode>AAAAAAAEAQAAAAAAAAAAAAAAAAAAAAAAAAAIACIIAAA=</HashCode>
+      <HashCode>AAAAAACEAQQAAAgAAAAIAAAAAAAAAAAAAAAIgCIIBAA=</HashCode>
       <FileName>Game.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
-      <Property Name="EastWest" />
-      <Property Name="NorthSouth" />
-      <Property Name="Contract" />
       <Property Name="Board" />
       <Property Name="Bids" />
+      <Property Name="NorthSouth" />
+      <Property Name="EastWest" />
+      <Property Name="Contract" />
     </ShowAsAssociation>
   </Class>
   <Class Name="Makaretu.Bridge.Pair">
     <Position X="0.5" Y="9" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAEAAAIAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Pair.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Struct Name="Makaretu.Bridge.Card" Collapsed="true">
     <Position X="8" Y="2.5" Width="1.5" />
-    <NestedTypes>
-      <Enum Name="Makaretu.Bridge.Card.Info" Collapsed="true">
-        <TypeIdentifier>
-          <NewMemberFileName>Card.cs</NewMemberFileName>
-        </TypeIdentifier>
-      </Enum>
-    </NestedTypes>
     <TypeIdentifier>
       <HashCode>AEAhAABCAUAACAJEAAAACAAAAAEAAAAgQIAAAAAAICA=</HashCode>
       <FileName>Card.cs</FileName>
@@ -202,7 +173,7 @@
   <Enum Name="Makaretu.Bridge.Denomination">
     <Position X="8" Y="4.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAQAAAEAAAAAAAAABAAAAAAAAAAEAAAAAAAAACA=</HashCode>
+      <HashCode>AAAAAAQAAAEAAAAAAAAADAAAAAAAAAAAAAAAAAAAACA=</HashCode>
       <FileName>Bid.cs</FileName>
     </TypeIdentifier>
   </Enum>

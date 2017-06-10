@@ -12,7 +12,7 @@ namespace Makaretu.Bridge.Analysis
         [TestMethod]
         public void AverageHcp()
         {
-            var tournament = new Tournament();
+            var tournament = new Session();
             tournament.GenerateBoards(2);
             Console.WriteLine("Board 1: {0}", tournament.Boards[0].Hands);
             Console.WriteLine("Board 2: {0}", tournament.Boards[1].Hands);

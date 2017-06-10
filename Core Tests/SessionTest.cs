@@ -4,25 +4,26 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace Makaretu.Bridge
 {
     [TestClass]
-    public class TournamentTest
+    public class SessionTest
     {
         [TestMethod]
         public void Properties()
         {
-            var t = new Tournament();
-            Assert.IsNotNull(t.Boards);
+            var session = new Session();
+            Assert.IsNotNull(session.Boards);
+            Assert.IsNotNull(session.Name);
 
             var boards = Board.CreateSet(2);
-            t.Boards = boards;
-            Assert.AreSame(boards, t.Boards);
+            session.Boards = boards;
+            Assert.AreSame(boards, session.Boards);
         }
 
         [TestMethod]
         public void GenerateBoards()
         {
-            var tournament = new Tournament();
-            tournament.GenerateBoards(16);
-            var boards = tournament.Boards;
+            var session = new Session();
+            session.GenerateBoards(16);
+            var boards = session.Boards;
             Assert.IsNotNull(boards);
             Assert.AreEqual(16, boards.Count);
             for (int i = 0; i < 16; ++i)
