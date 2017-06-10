@@ -112,9 +112,9 @@ namespace Makaretu.Bridge
                     }
                 }
 
-                if (suit != lastSuit && s.Length > 0)
+                if (suit != lastSuit && (!showSuit || s.Length > 0))
                 {
-                    if (s[s.Length - 1] == ' ')
+                    if (s.Length > 0 && s[s.Length - 1] == ' ')
                         s.Length -= 1;
                     s.Append(suitSeperator);
                 }

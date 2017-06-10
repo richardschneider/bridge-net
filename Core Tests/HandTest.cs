@@ -31,6 +31,23 @@ namespace Makaretu.Bridge
         }
 
         [TestMethod]
+        public void Issue4()
+        {
+            var hand = new Hand();
+            hand.Add(Card.Parse("KC"));
+            hand.Add(Card.Parse("AC"));
+            hand.Add(Card.Parse("6C"));
+            hand.Add(Card.Parse("2H"));
+            hand.Add(Card.Parse("QD"));
+            hand.Add(Card.Parse("AD"));
+            Assert.AreEqual(".2.AQ.AK6", hand.ToString("P"));
+
+            hand = new Hand();
+            hand.Add(Card.Parse("KC"));
+            Assert.AreEqual("...K", hand.ToString("P"));
+        }
+
+        [TestMethod]
         public void ToPbnString()
         {
             var hand = new Hand();
