@@ -31,7 +31,7 @@ namespace Makaretu.Bridge
         }
 
         [TestMethod]
-        public void Issue4()
+        public void Issue9()
         {
             var hand = new Hand();
             hand.Add(Card.Parse("KC"));
